@@ -1,28 +1,13 @@
-This project was generated from [create.xyz](https://create.xyz/).
+# 京田辺｜政策 × IKIZAMA 共創構想
 
-It is a [Next.js](https://nextjs.org/) project built on React and TailwindCSS.
+京田辺の政策構想と、市民団体IKIZAMAによる地域実証を分けたうえで、成果を通じて連携させる構想サイトです。
 
-## Getting Started
+## Vercelへの公開
 
-First, run the development server:
+このリポジトリは静的サイトです。Vercelで `rossy8417/web-pop` をImportし、Framework Presetを `Other` としてそのままDeployできます。ビルドコマンドは不要です。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 構成
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the code in `src`. The page auto-updates as you edit the file.
-
-To learn more, take a look at the following resources:
-
-- [React Documentation](https://react.dev/) - learn about React
-- [TailwindCSS Documentation](https://tailwindcss.com/) - learn about TailwindCSS
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `index.html` — サイト本体（CSS / JavaScript内包）
+- `vercel.json` — Vercel向け設定
+- `README.md` — このファイル
