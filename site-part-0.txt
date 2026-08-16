@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#123f32">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="description" content="政策で土台をつくり、IKIZAMAが現場で試す。京田辺の地域課題を市民の実証から政策へつなぐ、恩送り型の共創構想。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="京田辺・恩送り共創構想">
+  <meta property="og:description" content="政策で土台をつくる。IKIZAMAが現場を動かす。二つの役割を分けて、つなぐ。">
+  <title>京田辺・恩送り共創構想｜政策 × IKIZAMA</title>
+  <style>
+    :root{
+      --ink:#18241f;
+      --ink-soft:#5c6963;
+      --forest:#123f32;
+      --green:#1f6a51;
+      --green-2:#41906f;
+      --mint:#dff0e7;
+      --mint-2:#eef8f2;
+      --gold:#bf8a29;
+      --gold-2:#e6bd67;
+      --sand:#f3e7cf;
+      --blue:#32667c;
+      --blue-2:#dcebf1;
+      --paper:#f8f5ee;
+      --white:#fffefb;
+      --line:#d9ded9;
+      --red:#a35045;
+      --red-pale:#f8e9e6;
+      --shadow:0 24px 70px rgba(19,52,41,.12);
+      --shadow-sm:0 12px 34px rgba(19,52,41,.10);
+      --radius-xl:36px;
+      --radius-lg:26px;
+      --radius-md:18px;
+      --content:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 7% 2%,rgba(191,138,41,.13),transparent 28rem),
+        radial-gradient(circle at 97% 9%,rgba(31,106,81,.11),transparent 34rem),
+        var(--paper);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      font-size:16px;
+      line-height:1.72;
+      letter-spacing:.025em;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img,svg{display:block;max-width:100%}
+    .container{width:min(calc(100% - 40px),var(--content));margin-inline:auto}
+    .section{padding:112px 0;position:relative}
+    .section.compact{padding:78px 0}
+    .section-kicker{
+      display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;
+      color:var(--green);font-size:.78rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;
+    }
+    .section-kicker::before{content:"";width:32px;height:2px;background:var(--gold);border-radius:99px}
+    .section-title{margin:0;font-size:clamp(2rem,4vw,3.5rem);line-height:1.18;letter-spacing:-.025em}
+    .section-lead{max-width:840px;margin:22px 0 0;color:var(--ink-soft);font-size:clamp(1.02rem,1.4vw,1.16rem);line-height:1.78}
+    .muted{color:var(--ink-soft)}
+    .accent{color:var(--green)}
+    .gold{color:var(--gold)}
+    .nowrap{white-space:nowrap}
+
+    /* Header */
+    .site-header{
+      position:sticky;top:0;z-index:60;
+      background:rgba(248,245,238,.84);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(24,36,31,.08);
+    }
+    .header-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.02em}
+    .brand-mark{width:38px;height:38px;border-radius:13px;background:var(--forest);display:grid;place-items:center;box-shadow:0 8px 22px rgba(18,63,50,.22)}
+    .brand-mark svg{width:22px;color:#fff}
+    .brand-copy{line-height:1.25}
+    .brand-copy small{display:block;color:var(--green);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase}
+    .brand-copy span{font-size:.94rem}
+    .nav{display:flex;align-items:center;gap:22px;color:#435149;font-size:.88rem;font-weight:800}
+    .nav a{position:relative;padding:8px 0}
+    .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:2px;background:var(--gold);transition:.25s}
+    .nav a:hover::after{right:0}
+    .header-actions{display:flex;gap:8px}
+    .icon-button,.share-button{
+      border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border-radius:999px;font-weight:900;transition:.2s;
+    }
+    .icon-button{width:42px;height:42px;background:#fff;border:1px solid var(--line);color:var(--forest)}
+    .share-button{padding:11px 17px;background:var(--forest);color:white;box-shadow:0 9px 24px rgba(18,63,50,.18)}
+    .icon-button:hover,.share-button:hover{transform:translateY(-2px)}
+    .menu-button{display:none}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;padding:88px 0 84px;min-height:760px;display:flex;align-items:center}
+    .hero::before{content:"";position:absolute;inset:0;background:
+      linear-gradient(110deg,rgba(248,245,238,1) 0%,rgba(248,245,238,.94) 46%,rgba(248,245,238,.18) 80%),
+      radial-gradient(circle at 80% 22%,rgba(65,144,111,.24),transparent 29rem)}
+    .hero::after{content:"";position:absolute;width:440px;height:440px;border:1px solid rgba(31,106,81,.15);border-radius:50%;right:-180px;top:-180px;box-shadow:0 0 0 72px rgba(31,106,81,.035),0 0 0 144px rgba(31,106,81,.025)}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(460px,.97fr);gap:60px;align-items:center}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 13px;border:1px solid rgba(31,106,81,.21);border-radius:999px;background:rgba(255,255,255,.72);font-size:.72rem;font-weight:900;letter-spacing:.15em;color:var(--green)}
+    .hero-eyebrow i{display:block;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(191,138,41,.12)}
+    .hero h1{margin:24px 0 24px;font-size:clamp(3rem,5.65vw,5.7rem);line-height:1.04;letter-spacing:-.05em}
+    .hero h1 .line{display:block}
+    .hero h1 em{font-style:normal;color:var(--green);position:relative;display:inline-block}
+    .hero h1 em::after{content:"";position:absolute;left:2%;right:2%;bottom:-7px;height:10px;background:linear-gradient(90deg,rgba(230,189,103,.1),rgba(230,189,103,.72),rgba(230,189,103,.14));border-radius:100%;transform:rotate(-1.2deg);z-index:-1}
+    .hero-copy{max-width:680px;font-size:clamp(1.04rem,1.45vw,1.18rem);line-height:1.82;color:#48574f}
+    .hero-copy strong{color:var(--forest)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 21px;border-radius:999px;font-weight:900;border:1px solid transparent;transition:.22s;cursor:pointer}
+    .button.primary{background:var(--forest);color:white;box-shadow:0 14px 34px rgba(18,63,50,.22)}
+    .button.secondary{background:rgba(255,255,255,.82);border-color:var(--line);color:var(--forest)}
+    .button:hover{transform:translateY(-2px)}
+    .hero-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .hero-point{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.66);border:1px solid rgba(24,36,31,.07);font-size:.78rem;font-weight:800;color:#4d5b54}
+    .hero-point span{width:7px;height:7px;border-radius:50%;background:var(--green-2)}
+    .hero-visual{position:relative;filter:drop-shadow(0 28px 44px rgba(19,52,41,.12))}
+    .hero-visual::before{content:"";position:absolute;inset:7% 4% 4%;border-radius:48% 52% 45% 55% / 58% 42% 58% 42%;background:rgba(255,255,255,.60);border:1px solid rgba(255,255,255,.66);backdrop-filter:blur(8px)}
+    .hero-visual svg{position:relative;z-index:1;width:100%;height:auto;overflow:visible}
+    .draft-note{position:absolute;right:6%;bottom:4%;z-index:2;padding:10px 13px;border-radius:14px;background:rgba(255,255,255,.9);border:1px solid rgba(24,36,31,.09);font-size:.68rem;font-weight:850;color:#617068;box-shadow:var(--shadow-sm)}
+
+    /* Conclusion */
+    .conclusion-card{position:relative;overflow:hidden;border-radius:var(--radius-xl);background:var(--forest);color:white;padding:58px 64px;box-shadow:var(--shadow)}
+    .conclusion-card::before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;right:-210px;top:-235px;border:65px solid rgba(255,255,255,.055)}
+    .conclusion-card::after{content:"";position:absolute;left:-80px;bottom:-130px;width:260px;height:260px;border-radius:50%;background:rgba(191,138,41,.14)}
+    .conclusion-inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(400px,.95fr) minmax(0,1.05fr);gap:44px;align-items:center}
+    .conclusion-card h2{margin:0;font-size:clamp(2.1rem,3.5vw,3.35rem);line-height:1.14;letter-spacing:-.045em;display:grid;gap:.12em}
+    .conclusion-line{display:flex;align-items:baseline;gap:.08em;flex-wrap:nowrap;white-space:nowrap;max-width:max-content}
+    .conclusion-card h2 span{color:#f1c768;display:inline-block}
+    .conclusion-copy{font-size:1.08rem;color:rgba(255,255,255,.78)}
+    .conclusion-copy strong{color:white}
+    .principle-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+    .principle{padding:15px 16px;border-radius:15px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.11)}
+    .principle b{display:block;color:#f1c768;font-size:.78rem;margin-bottom:4px}
+    .principle span{font-size:.83rem;color:rgba(255,255,255,.83)}
+
+    /* Two engines */
+    .engine-grid{display:grid;grid-template-columns:1fr 76px 1fr;gap:18px;align-items:stretch;margin-top:52px}
+    .engine-card{border-radius:var(--radius-xl);padding:44px 42px;background:var(--white);border:1px solid rgba(24,36,31,.08);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+    .engine-card.policy{border-top:6px solid var(--blue)}
+    .engine-card.civic{border-top:6px solid var(--green)}
+    .engine-card::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-85px;top:-90px;background:var(--mint-2)}
+    .engine-card.policy::after{background:#edf5f8}
+    .engine-top{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px}
+    .engine-label{font-size:.72rem;font-weight:900;letter-spacing:.16em;color:var(--ink-soft)}
+    .engine-card h3{margin:4px 0 0;font-size:clamp(1.7rem,2.6vw,2.45rem);line-height:1.2}
+    .engine-icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;flex:none}
+    .policy .engine-icon{background:var(--blue-2);color:var(--blue)}
+    .civic .engine-icon{background:var(--mint);color:var(--green)}
+    .engine-icon svg{width:30px;height:30px}
+    .engine-statement{font-size:1.06rem;line-height:1.72;color:var(--ink-soft);margin:0 0 25px}
+    .engine-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+    .engine-list li{display:flex;align-items:flex-start;gap:11px;padding:12px 14px;border-radius:14px;background:#f8f8f5}
+    .engine-list i{width:21px;height:21px;border-radius:7px;display:grid;place-items:center;flex:none;margin-top:2px;color:white;font-style:normal;font-size:.69rem;font-weight:900}
+    .policy .engine-list i{background:var(--blue)}
+    .civic .engine-list i{background:var(--green)}
+    .engine-foot{margin-top:24px;padding-top:21px;border-top:1px dashed var(--line);font-size:.91rem;line-height:1.68;color:var(--ink-soft)}
+    .engine-foot strong{display:block;color:var(--red);margin-bottom:3px}
+    .connector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--gold)}
+    .connector-line{height:110px;width:2px;background:linear-gradient(var(--blue),var(--gold),var(--green));border-radius:99px}
+    .connector-badge{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--forest);color:white;box-shadow:0 10px 25px rgba(18,63,50,.23)}
+    .connector-badge svg{width:26px}
+    .connector small{writing-mode:vertical-rl;font-size:.67rem;font-weight:900;letter-spacing:.12em;color:#68746d}
+    .north-star{margin-top:22px;padding:25px 30px;border-radius:20px;background:linear-gradient(90deg,var(--sand),#f8f0df);display:flex;align-items:center;justify-content:center;gap:16px;text-align:center;border:1px solid rgba(191,138,41,.18)}
+    .north-star svg{width:31px;color:var(--gold);flex:none}
+    .north-star b{font-size:1.12rem}
+
+    /* Domains */
+    .domains{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .domain{background:var(--white);border:1px solid rgba(24,36,31,.08);border-radius:var(--radius-lg);padding:31px;box-shadow:0 10px 36px rgba(19,52,41,.06);transition:.25s}
+    .domain:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm)}
+    .domain-number{font-family:Georgia,"Times New Roman",serif;font-size:3.7rem;line-height:1;color:rgba(31,106,81,.16);font-weight:800}
+    .domain h3{margin:9px 0 7px;font-size:1.55rem;line-height:1.3}
+    .domain-tag{color:var(--gold);font-size:.73rem;font-weight:900;letter-spacing:.13em}
+    .domain > p{color:var(--ink-soft);font-size:.99rem;line-height:1.72;min-height:84px}
+    .domain-split{display:grid;gap:10px;margin-top:20px}
+    .domain-side{padding:15px;border-radius:15px;background:#f8f8f5}
+    .domain-side b{display:flex;align-items:center;gap:7px;font-size:.78rem;margin-bottom:5px}
+    .domain-side.policy-side b{color:var(--blue)}
+    .domain-side.civic-side b{color:var(--green)}
+    .domain-side span{font-size:.9rem;line-height:1.68;color:#5b6861}
+
+    /* Agriculture focus */
+    .focus-panel{margin-top:30px;border-radius:var(--radius-xl);background:linear-gradient(135deg,#203f33,#163527);color:white;overflow:hidden;box-shadow:var(--shadow)}
+    .focus-grid{display:grid;grid-template-columns:.86fr 1.14fr;align-items:stretch}
+    .focus-copy{padding:50px 52px;position:relative}
+    .focus-copy::before{content:"";position:absolute;right:-40px;bottom:-100px;width:240px;height:240px;border-radius:50%;background:rgba(191,138,41,.13)}
+    .focus-copy>*{position:relative}
+    .focus-copy .section-kicker{color:#f2cc7a}
+    .focus-copy .section-kicker::before{background:#f2cc7a}
+    .focus-copy h3{font-size:clamp(2rem,3.4vw,3.1rem);line-height:1.2;margin:0 0 18px}
+    .focus-copy p{color:rgba(255,255,255,.76);margin:0}
+    .focus-models{padding:38px;background:rgba(255,255,255,.06);display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .model{padding:17px;border-radius:17px;background:rgba(255,255,255,.095);border:1px solid rgba(255,255,255,.11)}
+    .model b{display:block;color:#f2cc7a;font-size:.84rem;margin-bottom:4px}
+    .model span{font-size:.87rem;line-height:1.62;color:rgba(255,255,255,.79)}
+    .model.last{grid-column:1/-1;background:rgba(242,204,122,.11);border-color:rgba(242,204,122,.22)}
+
+    /* Cycle */
+    .cycle-shell{margin-top:52px;padding:42px;border-radius:var(--radius-xl);background:var(--white);border:1px solid rgba(24,36,31,.08);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+    .cycle-shell::before{content:"";position:absolute;inset:18% 20%;border-radius:50%;border:1px dashed rgba(31,106,81,.22)}
+    .cycle-grid{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:11px;align-items:stretch}
+    .cycle-step{position:relative;z-index:1;padding:22px 16px;border-radius:19px;background:#f8f8f5;text-align:center;min-height:184px;display:flex;flex-direction:column;align-items:center}
+    .cycle-step:nth-child(odd){background:var(--mint-2)}
+    .cycle-step:nth-child(4),.cycle-step:nth-child(5){background:#eef5f8}
+    .cycle-num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--forest);color:white;font-size:.78rem;font-weight:900;margin-bottom:13px}
+    .cycle-step svg{width:34px;height:34px;color:var(--green);margin-bottom:10px}
+    .cycle-step:nth-child(4) svg,.cycle-step:nth-child(5) svg{color:var(--blue)}
+    .cycle-step b{font-size:.98rem;line-height:1.42}
+    .cycle-step span{margin-top:8px;color:var(--ink-soft);font-size:.82rem;line-height:1.58}
+    .cycle-arrow{position:absolute;right:-13px;top:50%;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:white;transform:translateY(-50%);z-index:4;box-shadow:0 5px 13px rgba(191,138,41,.24)}
+    .cycle-step:last-child .cycle-arrow{display:none}
+    .cycle-return{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:25px;color:var(--green);font-weight:900;font-size:.88rem}
+    .cycle-return::before,.cycle-return::after{content:"";height:1px;width:min(18vw,150px);background:linear-gradient(90deg,transparent,var(--green))}
+    .cycle-return::after{transform:scaleX(-1)}
+
+    /* Program */
+    .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+    .program{border-radius:var(--radius-lg);background:var(--white);border:1px solid rgba(24,36,31,.08);padding:31px 29px;position:relative;overflow:hidden;min-height:280px}
+    .program::after{content:"";position:absolute;right:-35px;bottom:-45px;width:130px;height:130px;border-radius:50%;background:var(--mint-2)}
+    .program-icon{width:48px;height:48px;border-radius:16px;background:var(--mint);display:grid;place-items:center;color:var(--green);margin-bottom:20px}
+    .program-icon svg{width:25px;height:25px}
+    .program h3{position:relative;z-index:1;margin:0 0 9px;font-size:1.24rem}
+    .program p{position:relative;z-index:1;color:var(--ink-soft);font-size:.96rem;line-height:1.7;margin:0 0 18px}
+    .metric{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:#f4f3ee;font-size:.76rem;font-weight:850;color:#56635c}
+    .metric i{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+    /* Promises */
+    .promises-layout{display:grid;grid-template-columns:330px 1fr;gap:40px;margin-top:50px;align-items:start}
+    .promise-intro{position:sticky;top:104px;padding:30px;border-radius:var(--radius-lg);background:var(--forest);color:white;box-shadow:var(--shadow-sm)}
+    .promise-intro .big-number{font-size:6rem;line-height:.9;font-family:Georgia,"Times New Roman",serif;color:#efc66e}
+    .promise-intro h3{font-size:1.45rem;margin:8px 0 12px}
+    .promise-intro p{font-size:.86rem;color:rgba(255,255,255,.72);margin:0}
+    .promise-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .promise{display:grid;grid-template-columns:42px 1fr;gap:13px;padding:19px;border-radius:17px;background:var(--white);border:1px solid rgba(24,36,31,.08)}
+    .promise-num{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--blue-2);color:var(--blue);font-size:.8rem;font-weight:900}
+    .promise:nth-child(n+4):nth-child(-n+6) .promise-num{background:var(--mint);color:var(--green)}
+    .promise:nth-child(n+7) .promise-num{background:var(--sand);color:#986a16}
+    .promise b{display:block;font-size:.97rem;margin-bottom:4px;line-height:1.48}
+    .promise span{display:block;font-size:.84rem;color:var(--ink-soft);line-height:1.62}
+
+    /* Governance */
+    .governance{background:#172b23;color:white;overflow:hidden}
+    .governance::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-240px;top:-250px;border:80px solid rgba(255,255,255,.035)}
+    .governance .section-kicker{color:#f2cc7a}.governance .section-kicker::before{background:#f2cc7a}
+    .governance .section-lead{color:rgba(255,255,255,.67)}
+    .firewall{position:relative;z-index:1;margin-top:48px;display:grid;grid-template-columns:1fr 90px 1fr;gap:22px;align-items:stretch}
+    .fire-side{border-radius:var(--radius-lg);padding:32px;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.09)}
+    .fire-side h3{margin:0 0 20px;font-size:1.45rem}
+    .fire-row{padding:14px 0;border-top:1px solid rgba(255,255,255,.09)}
+    .fire-row:first-of-type{border-top:0;padding-top:0}
+    .fire-row b{display:block;color:#f2cc7a;font-size:.8rem;margin-bottom:4px}
+    .fire-row span{font-size:.9rem;line-height:1.66;color:rgba(255,255,255,.77)}
+    .wall{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+    .wall-line{height:100%;min-height:310px;width:8px;border-radius:999px;background:repeating-linear-gradient(180deg,#efc66e 0 12px,rgba(239,198,110,.18) 12px 22px)}
+    .wall-badge{position:absolute;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:#efc66e;color:#172b23;box-shadow:0 12px 30px rgba(0,0,0,.22)}
+    .wall-badge svg{width:30px}
+    .wall span{writing-mode:vertical-rl;letter-spacing:.18em;font-size:.66rem;font-weight:900;color:#efc66e}
+    .legal-note{position:relative;z-index:1;margin-top:26px;padding:21px 24px;border-radius:18px;background:rgba(163,80,69,.16);border:1px solid rgba(238,164,151,.25);display:flex;gap:15px;align-items:flex-start}
+    .legal-note svg{width:26px;color:#f1a899;flex:none;margin-top:2px}
+    .legal-note p{margin:0;color:rgba(255,255,255,.78);font-size:.89rem;line-height:1.68}
+    .legal-note a{color:#f2cc7a;text-decoration:underline;text-underline-offset:3px}
+
+    /* Roadmap */
+    .roadmap{margin-top:52px;position:relative}
+    .roadmap::before{content:"";position:absolute;left:28px;top:20px;bottom:24px;width:2px;background:linear-gradient(var(--gold),var(--green),var(--blue))}
+    .phase{display:grid;grid-template-columns:58px 180px 1fr;gap:22px;align-items:start;margin-bottom:20px;position:relative}
+    .phase-dot{width:58px;height:58px;border-radius:19px;background:var(--white);border:2px solid var(--gold);display:grid;place-items:center;font-weight:950;color:var(--gold);z-index:1;box-shadow:0 8px 22px rgba(19,52,41,.08)}
+    .phase:nth-child(2) .phase-dot{border-color:var(--green);color:var(--green)}
+    .phase:nth-child(3) .phase-dot{border-color:var(--blue);color:var(--blue)}
+    .phase:nth-child(4) .phase-dot{background:var(--forest);border-color:var(--forest);color:white}
+    .phase-time{padding-top:13px;font-size:.82rem;font-weight:900;color:var(--ink-soft);letter-spacing:.07em}
+    .phase-card{padding:24px 27px;border-radius:19px;background:var(--white);border:1px solid rgba(24,36,31,.08)}
+    .phase-card h3{margin:0 0 7px;font-size:1.12rem}
+    .phase-card p{margin:0;color:var(--ink-soft);font-size:.92rem;line-height:1.68}
+    .phase-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+    .phase-tags span{padding:6px 10px;border-radius:999px;background:#f2f3ef;font-size:.72rem;font-weight:800;color:#647169}
+
+    /* KPI */
+    .kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:44px}
+    .kpi{padding:26px 18px;border-radius:20px;background:var(--white);border:1px solid rgba(24,36,31,.08);text-align:center}
+    .kpi strong{display:block;font-size:2.45rem;line-height:1.1;color:var(--green);letter-spacing:-.04em}
+    .kpi b{display:block;margin-top:8px;font-size:.88rem}
+    .kpi span{display:block;margin-top:6px;color:var(--ink-soft);font-size:.77rem;line-height:1.55}
+
+    /* CTA */
+    .final-cta{padding:88px 0 100px}
+    .cta-card{position:relative;overflow:hidden;border-radius:var(--radius-xl);padding:64px;background:linear-gradient(125deg,#f0e1c4,#f8f3e8 56%,#e3f1e9);border:1px solid rgba(191,138,41,.17);text-align:center}
+    .cta-card::before,.cta-card::after{content:"";position:absolute;border-radius:50%}
+    .cta-card::before{width:310px;height:310px;background:rgba(31,106,81,.09);left:-160px;bottom:-190px}
+    .cta-card::after{width:240px;height:240px;border:45px solid rgba(191,138,41,.09);right:-100px;top:-130px}
+    .cta-card>*{position:relative;z-index:1}
+    .cta-card .tiny{font-size:.72rem;font-weight:900;color:var(--green);letter-spacing:.15em}
+    .cta-card h2{font-size:clamp(2.3rem,4.8vw,4.3rem);line-height:1.13;margin:14px auto 18px;max-width:900px;letter-spacing:-.04em}
+    .cta-card p{max-width:720px;margin:0 auto;color:var(--ink-soft)}
+    .cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:11px;margin-top:30px}
+    .copy-feedback{min-height:24px;margin-top:13px;color:var(--green);font-size:.77rem;font-weight:850}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(24,36,31,.09);padding:34px 0 50px;color:var(--ink-soft);font-size:.79rem;line-height:1.65}
+    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}
+    .footer-links{display:flex;flex-wrap:wrap;gap:16px}
+    .footer-links a{text-decoration:underline;text-underline-offset:3px}
+    .source-note{max-width:650px}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* Mobile nav */
+    .mobile-panel{display:none}
+
+    @media(max-width:1100px){
+      .nav{display:none}.menu-button{display:inline-flex}
+      .hero{min-height:auto;padding-top:64px}
+      .hero-grid{grid-template-columns:1fr;gap:26px}
+      .hero-copy{max-width:780px}.hero-visual{max-width:720px;margin:0 auto;width:100%}
+      .conclusion-inner{grid-template-columns:1fr;gap:30px}
+      .engine-grid{grid-template-columns:1fr;gap:16px}
+      .connector{flex-direction:row;height:54px}.connector-line{width:120px;height:2px}.connector small{writing-mode:initial}
+      .domains{grid-template-columns:1fr 1fr}.domain:last-child{grid-column:1/-1}
+      .focus-grid{grid-template-columns:1fr}.focus-models{padding-top:0}
+      .cycle-grid{grid-template-columns:repeat(3,1fr)}
+      .cycle-step:nth-child(3) .cycle-arrow{display:none}
+      .cycle-step:nth-child(6) .cycle-arrow{display:none}
+      .program-grid{grid-template-columns:1fr 1fr}
+      .promises-layout{grid-template-columns:1fr}.promise-intro{position:relative;top:auto;display:grid;grid-template-columns:100px 1fr;align-items:center}.promise-intro .big-number{grid-row:1/3}
+      .kpi-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:740px){
+      .container{width:min(calc(100% - 28px),var(--content))}
+      .section{padding:72px 0}.section.compact{padding:54px 0}
+      .section-title{font-size:clamp(1.95rem,9.6vw,2.8rem);line-height:1.2}
+      .section-lead{font-size:1rem;line-height:1.78}
+      .header-inner{height:66px;gap:10px}.brand{gap:9px;min-width:0}.brand-mark{width:36px;height:36px;border-radius:12px}.brand-copy{min-width:0}.brand-copy small{display:none}.brand-copy span{display:block;font-size:.76rem;white-space:nowrap}.header-actions{gap:6px}.icon-button,.share-button{width:40px;height:40px}.share-button span{display:none}.share-button{padding:0}
+      .hero{padding:48px 0 58px}.hero h1{font-size:clamp(2.5rem,12.2vw,4.25rem);line-height:1.06}.hero-copy{font-size:1rem;line-height:1.82}
+      .hero-visual{max-width:560px;margin-top:8px}
+      .hero-actions .button{width:100%}.hero-points{gap:6px}.hero-point{font-size:.68rem}
+      .draft-note{position:relative;right:auto;bottom:auto;margin:8px auto 0;width:max-content}
+      .conclusion-card{padding:36px 25px}.conclusion-card h2{font-size:clamp(2rem,10vw,2.8rem);line-height:1.16}.conclusion-line{display:block;white-space:normal;max-width:none}.principle-row{grid-template-columns:1fr}
+      .engine-card{padding:29px 23px}.engine-top{align-items:center}.engine-icon{width:50px;height:50px}.engine-card h3{font-size:1.72rem}
+      .north-star{align-items:flex-start;text-align:left;padding:20px}
+      .domains{grid-template-columns:1fr}.domain:last-child{grid-column:auto}.domain > p{min-height:0}
+      .focus-copy{padding:38px 25px}.focus-models{padding:0 20px 25px;grid-template-columns:1fr}.model.last{grid-column:auto}
+      .cycle-shell{padding:22px 16px}.cycle-grid{grid-template-columns:1fr 1fr;gap:9px}.cycle-step{min-height:196px;padding:20px 11px}.cycle-step:nth-child(2) .cycle-arrow,.cycle-step:nth-child(4) .cycle-arrow,.cycle-step:nth-child(6) .cycle-arrow{display:none}.cycle-step:nth-child(3) .cycle-arrow{display:grid}
+      .program-grid{grid-template-columns:1fr}.program{min-height:0;padding:25px 23px}
+      .promise-intro{display:block}.promise-intro .big-number{font-size:4.5rem}.promise-list{grid-template-columns:1fr}
+      .firewall{grid-template-columns:1fr;gap:15px}.wall{height:70px;flex-direction:row}.wall-line{width:100%;height:8px;min-height:0;background:repeating-linear-gradient(90deg,#efc66e 0 12px,rgba(239,198,110,.18) 12px 22px)}.wall span{writing-mode:initial}.wall-badge{position:absolute}
+      .legal-note{padding:18px;align-items:flex-start}
+      .phase{grid-template-columns:48px 1fr;gap:14px}.phase-dot{width:48px;height:48px;border-radius:15px}.phase-time{grid-column:2;padding:0;margin-top:-11px}.phase-card{grid-column:2;padding:21px 20px}.roadmap::before{left:23px}
+      .kpi-grid{grid-template-columns:1fr 1fr}.kpi strong{font-size:2rem}
+      .cta-card{padding:48px 22px}.cta-actions .button{width:100%}
+      .footer-grid{display:grid}
+      .mobile-panel{position:fixed;inset:68px 12px auto;z-index:59;padding:16px;border-radius:18px;background:rgba(255,254,251,.97);border:1px solid var(--line);box-shadow:var(--shadow);display:none}
+      .mobile-panel.open{display:grid}.mobile-panel a{padding:12px 10px;border-bottom:1px solid #eceeea;font-size:.85rem;font-weight:850}.mobile-panel a:last-child{border:0}
+    }
+    @media print{
+      .site-header,.hero-actions,.header-actions,.cta-actions,.copy-feedback{display:none!important}
+      .hero{min-height:auto;padding-top:30px}.section{padding:55px 0}.reveal{opacity:1;transform:none}
+      body{background:white}.engine-card,.domain,.program,.cycle-shell,.phase-card,.kpi,.promise{box-shadow:none;break-inside:avoid}
+      .promise-intro{position:relative;top:auto}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="ページ先頭へ">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17c4-1 6-4 8-8 1 4 3 6 8 7"/><path d="M12 9c-1-3-4-4-7-3 1 3 3 5 7 3Z"/><path d="M13 10c1-3 4-5 7-4 0 3-2 5-7 4Z"/><path d="M12 9v10"/></svg>
+        </span>
+        <span class="brand-copy"><small>KYOTANABE CO-CREATION</small><span>京田辺・恩送り共創構想</span></span>
+      </a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <a href="#overview">全体像</a><a href="#roles">二つの役割</a><a href="#domains">重点領域</a><a href="#cycle">共創ループ</a><a href="#governance">分離原則</a><a href="#roadmap">ロードマップ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button menu-button" id="menuButton" aria-label="メニューを開く" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <button class="icon-button" onclick="window.print()" aria-label="印刷・PDF保存">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
+        </button>
+        <button class="share-button" data-share><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.6 6.8-4M8.6 13.4l6.8 4"/></svg><span>共有する</span></button>
+      </div>
+    </div>
+    <div class="mobile-panel" id="mobilePanel">
+      <a href="#overview">全体像</a><a href="#roles">二つの役割</a><a href="#domains">重点領域</a><a href="#cycle">共創ループ</a><a href="#governance">分離原則</a><a href="#roadmap">ロードマップ</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-eyebrow"><i></i> CONCEPT DRAFT / AUGUST 2026</div>
+          <h1><span class="line">政策で土台をつくる。</span><span class="line"><em>IKIZAMAが現場を動かす。</em></span></h1>
+          <p class="hero-copy">京田辺の課題を、選挙の言葉だけにも、市民の善意だけにも任せない。<strong>政策をつくる側</strong>と、<strong>地域で試すIKIZAMA</strong>を別々に保ちながら、実証結果だけを確かにつなぐ「恩送り型」のまちづくり構想です。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#overview">構造を1分で見る <span aria-hidden="true">↓</span></a>
+            <button class="button secondary" data-share>LINEで共有する</button>
+          </div>
+          <div class="hero-points">
+            <span class="hero-point"><span></span>候補者名を出さない</span>
+            <span class="hero-point"><span></span>政策と団体を分離</span>
+            <span class="hero-point"><span></span>現場データで接続</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="政策と市民活動が子どもの未来を中心につながる図">
+          <svg viewBox="0 0 650 610" role="img">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf5ef"/><stop offset="1" stop-color="#d6eadf"/></linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3e7cf"/><stop offset="1" stop-color="#ead29d"/></linearGradient>
+              <filter id="s"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#13342a" flood-opacity=".13"/></filter>
+            </defs>
+            <path d="M74 463C143 392 200 415 252 375c53-41 55-99 120-111 70-13 105 44 195 26v203H74Z" fill="#dcece2" opacity=".82"/>
+            <path d="M34 510c113-76 179-30 255-75 89-52 135-124 323-54v149H34Z" fill="#c8dfd1"/>
+            <path d="M35 526h578" stroke="#9fc3ae" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- Policy card -->
+            <g filter="url(#s)">
+              <rect x="35" y="93" width="232" height="261" rx="32" fill="#fffefb"/>
+              <rect x="35" y="93" width="232" height="10" rx="5" fill="#32667c"/>
+            </g>
+            <circle cx="86" cy="147" r="27" fill="#dcebf1"/>
+            <g fill="none" stroke="#32667c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M70 151h32M74 151v19h24v-19M70 151l16-11 16 11M82 160h8"/>
+            </g>
+            <text x="125" y="145" fill="#32667c" font-size="14" font-weight="800">POLICY</text>
+            <text x="125" y="169" fill="#18241f" font-size="24" font-weight="900">政策構想</text>
+            <g fill="#edf5f8">
+              <rect x="65" y="205" width="172" height="36" rx="12"/><rect x="65" y="250" width="172" height="36" rx="12"/><rect x="65" y="295" width="172" height="36" rx="12"/>
+            </g>
+            <g fill="#32667c" font-size="13" font-weight="800"><text x="82" y="228">制度・予算を整える</text><text x="82" y="273">行政を横断してつなぐ</text><text x="82" y="318">市全体へ広げる</text></g>
+
+            <!-- Civic card -->
+            <g filter="url(#s)">
+              <rect x="383" y="93" width="232" height="261" rx="32" fill="#fffefb"/>
+              <rect x="383" y="93" width="232" height="10" rx="5" fill="#1f6a51"/>
+            </g>
+            <circle cx="434" cy="147" r="27" fill="#dff0e7"/>
+            <g fill="none" stroke="#1f6a51" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="426" cy="143" r="6"/><circle cx="444" cy="143" r="6"/><path d="M415 162c3-9 19-9 22 0M433 162c3-9 17-9 20 0"/>
+            </g>
+            <text x="473" y="145" fill="#1f6a51" font-size="14" font-weight="800">CIVIC</text>
+            <text x="473" y="169" fill="#18241f" font-size="24" font-weight="900">IKIZAMA</text>
+            <g fill="#eef8f2">
+              <rect x="413" y="205" width="172" height="36" rx="12"/><rect x="413" y="250" width="172" height="36" rx="12"/><rect x="413" y="295" width="172" height="36" rx="12"/>
+            </g>
+            <g fill="#1f6a51" font-size="13" font-weight="800"><text x="430" y="228">小さく試してみる</text><text x="430" y="273">市民の声を集める</text><text x="430" y="318">知見を公開する</text></g>
+
+            <!-- Center child/future -->
+            <g filter="url(#s)">
+              <circle cx="325" cy="404" r="100" fill="#123f32"/>
+              <circle cx="325" cy="404" r="88" fill="none" stroke="#e6bd67" stroke-width="2" opacity=".65"/>
+            </g>
+            <g fill="none" stroke="#f3d58f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M325 405v-47"/><path d="M325 376c-22-1-34-13-35-31 19-1 33 8 35 31Z"/><path d="M326 365c15-17 33-18 46-7-9 17-25 23-46 7Z"/>
+              <path d="M276 443c24-13 74-13 98 0"/><path d="M291 454c17-9 51-9 68 0"/>
+            </g>
+            <!-- Arrows -->
+            <path d="M261 224C319 207 357 210 390 225" fill="none" stroke="#bf8a29" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 11"/>
+            <path d="M378 218l14 8-15 6" fill="none" stroke="#bf8a29" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M445 354c-12 34-36 54-53 64" fill="none" stroke="#1f6a51" stroke-width="5" stroke-linecap="round"/>
+            <path d="M400 404l-9 15 17-1" fill="none" stroke="#1f6a51" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M257 420c-20-11-38-32-47-65" fill="none" stroke="#32667c" stroke-width="5" stroke-linecap="round"/>
+            <path d="M203 367l6-14 10 13" fill="none" stroke="#32667c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- small people and town -->
+            <g fill="#fffefb" stroke="#1f6a51" stroke-width="3">
+              <circle cx="119" cy="475" r="12"/><path d="M96 512c1-23 44-23 46 0"/><circle cx="168" cy="485" r="10"/><path d="M151 515c1-19 34-19 35 0"/>
+              <circle cx="516" cy="475" r="12"/><path d="M493 512c1-23 44-23 46 0"/><circle cx="563" cy="486" r="10"/><path d="M546 515c1-19 34-19 35 0"/>
+            </g>
+            <path d="M255 532v-42l23-18 23 18v42M349 532v-55h40v55M365 492h9M365 508h9" fill="#fffefb" stroke="#8bb49d" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M314 532v-27h28v27" fill="#fffefb" stroke="#8bb49d" stroke-width="3"/>
+            <g filter="url(#s)">
+              <rect x="227" y="498" width="196" height="34" rx="17" fill="#123f32" opacity=".96"/>
+            </g>
+            <text x="325" y="520" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">子どもと次の世代</text>
+          </svg>
+          <div class="draft-note">公開用：固有名詞を出さない構想図</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="overview">
+      <div class="container">
+        <div class="conclusion-card reveal">
+          <div class="conclusion-inner">
+            <h2><span class="conclusion-line">一つに<span>混ぜない。</span></span><span class="conclusion-line">二つを<span>つなぐ。</span></span></h2>
+            <div class="conclusion-copy">
+              <p><strong>IKIZAMAを候補者の選挙組織にはしません。</strong>同時に、政策を机上の公約だけにもさせません。二者は組織・会計・名簿・広報を分け、地域課題の実証結果だけを相互に渡します。</p>
+              <div class="principle-row">
+                <div class="principle"><b>独立</b><span>目的と意思決定を分ける</span></div>
+                <div class="principle"><b>接続</b><span>課題・データ・知見を渡す</span></div>
+                <div class="principle"><b>循環</b><span>成果を次の世代へ送る</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roles">
+      <div class="container">
+        <div class="section-kicker">TWO INDEPENDENT ENGINES</div>
+        <h2 class="section-title">政策とIKIZAMAは、<br>役割が違うからこそ強い。</h2>
+        <p class="section-lead">政策側は、ルール・予算・行政連携を変える。IKIZAMAは、市民が参加したくなる入口をつくり、小さく試して結果を残す。どちらかが片方を所有するのではなく、共通の地域課題に対して並走します。</p>
+
+        <div class="engine-grid">
+          <article class="engine-card policy reveal">
+            <div class="engine-top">
+              <div><div class="engine-label">POLICY / PUBLIC SYSTEM</div><h3>政策構想側</h3></div>
+              <div class="engine-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18M5 10V8l7-4 7 4v2M6 10v8M10 10v8M14 10v8M18 10v8M3 20h18"/></svg></div>
+            </div>
+            <p class="engine-statement"><strong>制度・予算・公共資産を変え、市全体へ広げる。</strong><br>現場の声を「良い話」で終わらせず、誰にでも開かれた公共の仕組みにします。</p>
+            <ul class="engine-list">
+              <li><i>1</i><span>地域課題を数値・期限・成果で政策化する</span></li>
+              <li><i>2</i><span>学校、公園、公共施設、農地などを活用しやすくする</span></li>
+              <li><i>3</i><span>部署をまたぐ課題を行政横断で扱う</span></li>
+              <li><i>4</i><span>実証で効果が見えたモデルを予算・制度につなぐ</span></li>
+              <li><i>5</i><span>一地区の成功を、市内で再現できる仕組みにする</span></li>
+            </ul>
+            <div class="engine-foot"><strong>やらないこと</strong>IKIZAMAのイベント運営を政策側が直接指揮すること、IKIZAMAの参加者名簿を選挙目的で使うこと。</div>
+          </article>
+
+          <div class="connector" aria-hidden="true"><div class="connector-line"></div><div class="connector-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h8M13 9l3 3-3 3M11 5H7a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h4M13 5h4a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-4"/></svg></div><small>知見だけを接続</small><div class="connector-line"></div></div>
+
+          <article class="engine-card civic reveal">
+            <div class="engine-top">
+              <div><div class="engine-label">IKIZAMA / CIVIC PRACTICE</div><h3>市民実践側</h3></div>
+              <div class="engine-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c.4-5 10.6-5 11 0M13 20c.3-4 8.7-4 9 0"/><path d="M13 5c1.4-2.3 4-2.5 5.5-.8"/></svg></div>
+            </div>
+            <p class="engine-statement"><strong>人を集め、遊び・体験・仕事を入口に、小さく試す。</strong><br>行政事業になる前の仮説を、地域の人と一緒に現場で確かめます。</p>
+            <ul class="engine-list">
+              <li><i>1</i><span>親子・子ども・若者が入りやすい参加の入口をつくる</span></li>
+              <li><i>2</i><span>地域の仕事・農業・文化を「体験」に変える</span></li>
+              <li><i>3</i><span>小さな実証で、安全・費用・満足・継続性を測る</span></li>
+              <li><i>4</i><span>住民、企業、学校、農業者、団体を横につなぐ</span></li>
+              <li><i>5</i><span>成功だけでなく、失敗と改善点まで公開する</span></li>
+            </ul>
+            <div class="engine-foot"><strong>やらないこと</strong>特定候補への投票依頼、候補者の後援会化、イベント参加者への政治活動の押しつけ。</div>
+          </article>
+        </div>
+        <div class="north-star reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s8-4.8 8-11a4.5 4.5 0 0 0-8-2.8A4.5 4.5 0 0 0 4 10c0 6.2 8 11 8 11Z"/></svg><b>共通する目的は一つ。「子どもたちが、京田辺で育ったことを誇れる循環」を残す。</b></div>
+      </div>
+    </section>
+
+    <section class="section compact" id="domains">
+      <div class="container">
+        <div class="section-kicker">THREE SHARED FIELDS</div>
+        <h2 class="section-title">政策と実践が重なる、三つの重点領域。</h2>
+        <p class="section-lead">政策側とIKIZAMAが同じことをするのではありません。同じ課題に対して、それぞれの得意な方法を持ち寄ります。</p>
+        <div class="domains">
+          <article class="domain reveal"><div class="domain-number">01</div><div class="domain-tag">LAND & AGRICULTURE</div><h3>田園と地域資源を守る</h3><p>耕作放棄地・放置竹林・担い手不足を、農業だけでなく景観、防災、食、教育、地域経済の課題として扱う。</p><div class="domain-split"><div class="domain-side policy-side"><b>● 政策側</b><span>農地・竹林の可視化、所有者と担い手の接続、支援制度、学校給食・加工・ブランドとの連携。</span></div><div class="domain-side civic-side"><b>● IKIZAMA</b><span>親子農業、竹資源ワークショップ、収穫・食育、市民農園などの小規模実証。</span></div></div></article>
+          <article class="domain reveal"><div class="domain-number">02</div><div class="domain-tag">CHILDREN & LOCAL WORK</div><h3>子どもと地域の担い手を育てる</h3><p>一次産業、製造業、建設業、商業など、地域を支える大人の仕事を、次世代の学びと地域への愛着につなぐ。</p><div class="domain-split"><div class="domain-side policy-side"><b>● 政策側</b><span>学校・地域・事業者が連携しやすい枠組み、公共施設利用、若者参画、仕事体験の制度設計。</span></div><div class="domain-side civic-side"><b>● IKIZAMA</b><span>親子イベント、地域の仕事体験、学生スタッフ、撮影・広報・運営など「役割のある参加」。</span></div></div></article>
+          <article class="domain reveal"><div class="domain-number">03</div><div class="domain-tag">CIVIC CO-CREATION</div><h3>市民の挑戦を制度へつなぐ</h3><p>「市民の要望を聞く」だけではなく、市民自身も役割を持って試し、行政は結果を受け止めて制度へつなぐ。</p><div class="domain-split"><div class="domain-side policy-side"><b>● 政策側</b><span>共創窓口、実証支援枠、部署横断会議、提案の進捗公開、成果の市内展開。</span></div><div class="domain-side civic-side"><b>● IKIZAMA</b><span>シチズンシップラボ、課題ヒアリング、実行チームづくり、実証結果と会計・学びの公開。</span></div></div></article>
+        </div>
+
+        <div class="focus-panel reveal" aria-label="農業政策の考え方">
+          <div class="focus-grid">
+            <div class="focus-copy"><div class="section-kicker">AGRICULTURE REFRAME</div><h3>「公務員が農業をする」を、最初から結論にしない。</h3><p>守りたいのは手段ではなく、京田辺の農地・竹林と、その公共的価値です。IKIZAMAはどのモデルが地域に合うかを試し、政策側は結果を比較して制度を選びます。</p></div>
+            <div class="focus-models">
+              <div class="model"><b>A｜行政調整・支援型</b><span>農地データ、所有者調整、補助、相談窓口などを行政が担う。</span></div>
+              <div class="model"><b>B｜農業者・法人型</b><span>農家、農業法人、JA等が担い手となり、行政が参入・継続を支援。</span></div>
+              <div class="model"><b>C｜公民連携型</b><span>地域商社・中間支援組織等が、地域資源活用と収益事業を組み合わせる。</span></div>
+              <div class="model"><b>D｜市民参加型</b><span>市民農園・体験農園・学校教育で、関係人口と担い手候補を増やす。</span></div>
+              <div class="model last"><b>IKIZAMAの役割｜結論を出す前の「実証」</b><span>参加人数、作業時間、維持費、安全性、継続希望、地域の反応を記録。政策側へ「印象」ではなく比較材料を渡す。</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cycle">
+      <div class="container">
+        <div class="section-kicker">FROM VOICE TO SYSTEM</div><h2 class="section-title">地域の声が、政策になるまで。</h2><p class="section-lead">この六段階を一周させることを、共創の基本単位にします。「イベントをした」「話を聞いた」で終わらせないための循環です。</p>
+        <div class="cycle-shell reveal"><div class="cycle-grid">
+            <div class="cycle-step"><div class="cycle-num">01</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H7l-3 3V5Z"/><path d="M8 9h8M8 12h5"/></svg><b>課題と声を集める</b><span>市民・農家・企業・学校・子どもの困り事</span><i class="cycle-arrow">›</i></div>
+            <div class="cycle-step"><div class="cycle-num">02</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="5"/></svg><b>小さく実証する</b><span>IKIZAMAが地域と一緒に試す</span><i class="cycle-arrow">›</i></div>
+            <div class="cycle-step"><div class="cycle-num">03</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><b>数字と学びを残す</b><span>費用・安全・参加・満足・失敗</span><i class="cycle-arrow">›</i></div>
+            <div class="cycle-step"><div class="cycle-num">04</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h11l3 3v15H5z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg><b>政策提案へ翻訳</b><span>目的・対象・財源・効果を整理</span><i class="cycle-arrow">›</i></div>
+            <div class="cycle-step"><div class="cycle-num">05</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18M5 10V8l7-4 7 4v2M6 10v8M10 10v8M14 10v8M18 10v8M3 20h18"/></svg><b>制度・予算にする</b><span>行政連携、事業化、ルール改善</span><i class="cycle-arrow">›</i></div>
+            <div class="cycle-step"><div class="cycle-num">06</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s8-4.8 8-11a4.5 4.5 0 0 0-8-2.8A4.5 4.5 0 0 0 4 10c0 6.2 8 11 8 11Z"/></svg><b>地域へ恩を送る</b><span>市全体へ広げ、次の挑戦へ</span></div>
+          </div><div class="cycle-return">新しい課題・声へ戻る</div></div>
+      </div>
+    </section>
+
+    <section class="section compact" id="projects">
+      <div class="container"><div class="section-kicker">IKIZAMA PILOTS</div><h2 class="section-title">IKIZAMAが担う、六つの実証。</h2><p class="section-lead">「楽しい」で終わらず、次の政策判断に使える学びを残す。既存イベントもこの視点で再設計できます。</p>
+        <div class="program-grid">
+          <article class="program reveal"><div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19c2-4 4-6 7-9M8 5l3 2-2 4M14 8l4 2-1 4M13 19l2-5 4 5"/><circle cx="8" cy="4" r="2"/></svg></div><h3>親子・地域体験</h3><p>激逃げ、ボードゲーム、チャンバラ、シャボン玉など。子どもだけでなく、親が本気で楽しむ姿を地域に見せる。</p><span class="metric"><i></i>参加・再参加・安全・運営負荷</span></article>
+          <article class="program reveal"><div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20h18M5 20V9h5v11M14 20V4h5v16M7 12h1M16 8h1M16 12h1"/></svg></div><h3>地域の仕事体験</h3><p>農業、製造業、建設業、商業など、地域を支える仕事を子どもと若者へ伝える「大人の背中」プログラム。</p><span class="metric"><i></i>協力事業者・体験数・進路関心</span></article>
+          <article class="program reveal"><div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21V9M12 14c-4 0-7-3-7-7 4 0 7 3 7 7ZM13 11c1-4 4-6 8-6 0 4-3 7-8 6Z"/></svg></div><h3>農地・竹林ラボ</h3><p>放棄地再生、竹チップ・竹炭、収穫、親子農業体験。政策手段を決める前に、参加性と継続性を検証する。</p><span class="metric"><i></i>再生面積・参加時間・維持費</span></article>
+          <article class="program reveal"><div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 8v5c0 5 3.8 7.7 9 9 5.2-1.3 9-4 9-9V8l-9-5Z"/><path d="M8 14h8M10 10h4"/></svg></div><h3>遊ぶ防災</h3><p>鬼ごっこ、炊き出し、避難所体験、安否確認を組み合わせ、共助を「訓練」だけでなく参加したい体験へ変える。</p><span class="metric"><i></i>地区連携・動線・役割理解</span></article>
+          <article class="program reveal"><div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 20c0-5 10-5 10 0M12 20c0-5 10-5 10 0M9 13h6"/></svg></div><h3>シチズンシップラボ</h3><p>市民・企業・教育・農業・行政が、要望ではなく「誰が何を担うか」まで決める対話とプロジェクト形成。</p><span class="metric"><i></i>提案・担当者・期限・実行率</span></article>
+          <article class="program reveal"><div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M16 8l4 4-4 4M8 5 4 9l4 4"/><circle cx="12" cy="12" r="2"/></svg></div><h3>恩送りバンク</h3><p>時間、知識、技能、場所、道具、資金を「提供できること」として登録し、必要な地域活動へつなぐ。</p><span class="metric"><i></i>登録100件・成立数・継続率</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="promises">
+      <div class="container"><div class="section-kicker">POLICY DRAFT</div><h2 class="section-title">政策側で磨く「10の約束」。</h2><p class="section-lead">これは完成公約ではなく、IKIZAMAの活動とは別に政策チームで深掘りするための骨格です。主語を行政・制度側へ置きます。</p>
+        <div class="promises-layout">
+          <aside class="promise-intro reveal"><div class="big-number">10</div><h3>約束は「状態」と「最初の一歩」をセットに。</h3><p>誰が・いつまでに・何を変えるか。成果指標まで入れることで、選挙後に進捗を追える政策へ。</p></aside>
+          <div class="promise-list">
+            <div class="promise reveal"><div class="promise-num">01</div><div><b>市民の小さな実証を支える枠をつくる</b><span>場所・相談・保険・小規模費用などを一体で支援。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">02</div><div><b>学校・公園・公共施設を地域活動で使いやすくする</b><span>安全性を守りつつ、申請と部署調整を簡素化。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">03</div><div><b>子どもと若者を「参加者」から「企画者」へ</b><span>若者会議ではなく、実事業の役割と予算へつなぐ。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">04</div><div><b>耕作放棄地と竹林を可視化する</b><span>場所・所有・現況・担い手候補を段階的に把握。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">05</div><div><b>農地維持モデルを比較・実証する</b><span>行政支援、法人、公民連携、市民参加などを検証。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">06</div><div><b>京田辺の農と食を教育・ブランドへつなぐ</b><span>学校給食、加工、直売、体験、地域発信を横断。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">07</div><div><b>農業・製造・建設など地域の仕事を伝える</b><span>子ども・学生と現場を結ぶ地域仕事体験を拡充。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">08</div><div><b>「遊ぶ防災」を地域防災へ取り入れる</b><span>参加率の高い訓練モデルを地区ごとに検証。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">09</div><div><b>市民提案の現在地を公開する</b><span>受付・検討・実証・保留・実施を見える化。</span></div></div>
+            <div class="promise reveal"><div class="promise-num">10</div><div><b>部署横断の共創窓口をつくる</b><span>「担当課が違う」で止まる課題を横断して扱う。</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section governance" id="governance">
+      <div class="container"><div class="section-kicker">FIREWALL / GOVERNANCE</div><h2 class="section-title">協力するからこそ、線を引く。</h2><p class="section-lead">政策と市民活動が近いほど、「誰が決めるか」「誰のお金か」「誰の名簿か」を分けます。信頼を守るための設計です。</p>
+        <div class="firewall">
+          <div class="fire-side reveal"><h3>政策・政治活動側</h3><div class="fire-row"><b>発信</b><span>政策、公約、議会・選挙関連の広報は独自媒体で行う。</span></div><div class="fire-row"><b>会計</b><span>政治活動・選挙に必要な会計をIKIZAMAと混ぜない。</span></div><div class="fire-row"><b>名簿</b><span>政治目的で適法に取得した連絡先のみを扱う。</span></div><div class="fire-row"><b>意思決定</b><span>政策チームが判断。IKIZAMAへ指揮命令しない。</span></div><div class="fire-row"><b>受け取るもの</b><span>一般公開された実証レポート・政策提案。</span></div></div>
+          <div class="wall" aria-label="組織・会計・名簿・広報を分離"><span>分離する</span><div class="wall-line"></div><div class="wall-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div></div>
+          <div class="fire-side reveal"><h3>IKIZAMA・市民活動側</h3><div class="fire-row"><b>発信</b><span>イベント、地域活動、実証結果は団体媒体で発信。</span></div><div class="fire-row"><b>会計</b><span>参加費・協賛・助成等は団体活動として独立管理。</span></div><div class="fire-row"><b>名簿</b><span>参加・安全・活動案内の目的で管理し、目的外利用しない。</span></div><div class="fire-row"><b>意思決定</b><span>団体ルールで判断。候補者の指示機関にならない。</span></div><div class="fire-row"><b>渡すもの</b><span>公開実証結果を行政・議会・関係者へ広く提案。</span></div></div>
+        </div>
+        <div class="legal-note reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5M12 18h.01"/></svg>
+          <p><strong>実務上の確認事項：</strong>このページは組織設計のたたき台で、法的判断そのものではありません。実際の選挙活動、イベントへの候補者参加、広報物、寄附・協賛、名簿利用等は個別事情で扱いが変わるため、公開・実施前に<a href="https://www.city.kyotanabe.lg.jp/0000005090.html" target="_blank" rel="noopener">京田辺市選挙管理委員会</a>等へ具体物を示して確認する運用を前提とします。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container"><div class="section-kicker">ROADMAP</div><h2 class="section-title">選挙結果に依存しない、進め方。</h2><p class="section-lead">IKIZAMAは市民団体として続く。政策側は政治・行政のレイヤーで進む。結果によって「接続方法」が変わるだけの構造にしておきます。</p>
+        <div class="roadmap">
+          <div class="phase reveal"><div class="phase-dot">01</div><div class="phase-time">NOW → 3 MONTHS</div><div class="phase-card"><h3>分離ルールと3本の実証テーマを決める</h3><p>まずは組織を大きくせず、地域課題・目的・測定項目・予算上限・責任者を一枚で決める。</p><div class="phase-tags"><span>団体規約</span><span>会計</span><span>名簿目的</span><span>実証設計</span></div></div></div>
+          <div class="phase reveal"><div class="phase-dot">02</div><div class="phase-time">3 → 9 MONTHS</div><div class="phase-card"><h3>IKIZAMAは実証、政策側は政策ヒアリング</h3><p>同じ課題を別ルートで掘る。月次で「公開可能な知見」だけを整理する。</p><div class="phase-tags"><span>農地・竹林</span><span>子ども</span><span>仕事</span><span>防災</span></div></div></div>
+          <div class="phase reveal"><div class="phase-dot">03</div><div class="phase-time">9 → 12 MONTHS</div><div class="phase-card"><h3>公開レポート → 政策提案へ翻訳</h3><p>成功事例だけでなく、失敗、必要人員、コスト、参加率、事故リスクを含めて提案。</p><div class="phase-tags"><span>公開レポート</span><span>政策提案</span><span>行政対話</span></div></div></div>
+          <div class="phase reveal"><div class="phase-dot">04</div><div class="phase-time">AFTER ELECTION</div><div class="phase-card"><h3>成果を一般制度へ。IKIZAMAだけの制度にしない</h3><p>政策化できる立場なら予算・制度へ。そうでなくても行政・議会へ公開提案を続ける。</p><div class="phase-tags"><span>市全体へ展開</span><span>他団体も利用</span><span>恩送り</span></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="kpi">
+      <div class="container"><div class="section-kicker">FIRST-YEAR SIGNALS</div><h2 class="section-title">最初の一年で見る数字。</h2><p class="section-lead">大きな成果を約束するより、共創の仕組みが本当に回り始めたかを測ります。下記は初期案です。</p>
+        <div class="kpi-grid">
+          <div class="kpi reveal"><strong>3+</strong><b>小規模実証</b><span>年3件以上を実施</span></div>
+          <div class="kpi reveal"><strong>100</strong><b>恩送り登録</b><span>時間・技能・場所等</span></div>
+          <div class="kpi reveal"><strong>5+</strong><b>分野横断接続</b><span>農・商・教育など</span></div>
+          <div class="kpi reveal"><strong>1+</strong><b>政策提案</b><span>公開レポートから</span></div>
+          <div class="kpi reveal"><strong>100%</strong><b>結果公開</b><span>会計・成果・失敗</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container"><div class="cta-card reveal"><div class="tiny">ON-OKURI / PAY IT FORWARD</div><h2>今いる大人が、<br><span class="accent">次の世代へ何を送れるか。</span></h2><p>政策が「できる環境」をつくり、IKIZAMAが「やってみる場」をつくる。その成果が次の制度と次の挑戦へ流れていく。それが、この構想でいう「恩送り」です。</p><div class="cta-actions"><a class="button primary" href="#top">最初から見直す ↑</a><button class="button secondary" data-share>この構想を共有する</button></div><div class="copy-feedback" id="copyFeedback" aria-live="polite"></div></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-grid"><div class="source-note"><strong>京田辺・恩送り共創構想</strong><br>地域内での対話・検討用ドラフト。個人名を出さず、政策構想とIKIZAMAの市民活動を分けて整理しています。</div><div class="footer-links"><a href="#roles">役割</a><a href="#cycle">共創ループ</a><a href="#governance">分離原則</a></div></div></footer>
+
+  <script>
+    document.querySelectorAll('.reveal').forEach((el)=>{
+      const ob=new IntersectionObserver((entries,observer)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.08});
+      ob.observe(el);
+    });
+    const menuButton=document.getElementById('menuButton');
+    const mobilePanel=document.getElementById('mobilePanel');
+    if(menuButton){
+      menuButton.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
+      mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
+    }
+    async function sharePage(){
+      const data={title:'京田辺・恩送り共創構想',text:'政策で土台をつくる。IKIZAMAが現場を動かす。',url:location.href};
+      if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
+      try{await navigator.clipboard.writeText(location.href);const f=document.getElementById('copyFeedback');if(f){f.textContent='URLをコピーしました。LINEに貼り付けて共有できます。';setTimeout(()=>f.textContent='',3500)}}catch(e){prompt('このURLをコピーしてください',location.href)}
+    }
+    document.querySelectorAll('[data-share]').forEach(b=>b.addEventListener('click',sharePage));
+  </script>
+</body>
+</html>
