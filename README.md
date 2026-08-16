@@ -1,13 +1,10 @@
-# 京田辺｜政策 × IKIZAMA 共創構想
+# 京田辺・恩送り共創構想
 
-京田辺の政策構想と、市民団体IKIZAMAによる地域実証を分けたうえで、成果を通じて連携させる構想サイトです。
+Vercelでそのまま公開するための静的サイトです。
 
-## Vercelへの公開
+- `index.html`: ローダー
+- `payload.txt`: 完成HTMLのgzip/Base64ペイロード
+- `favicon.svg`: ファビコン
+- `vercel.json`: Vercel設定
 
-このリポジトリは静的サイトです。Vercelで `rossy8417/web-pop` をImportし、Framework Presetを `Other` としてそのままDeployできます。ビルドコマンドは不要です。
-
-## 構成
-
-- `index.html` — サイト本体（CSS / JavaScript内包）
-- `vercel.json` — Vercel向け設定
-- `README.md` — このファイル
+VercelではFramework Presetを `Other` にして、そのままDeployしてください。
